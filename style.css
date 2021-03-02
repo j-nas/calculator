@@ -1,0 +1,192 @@
+.calculator {
+  display: grid;
+  grid: 90 repeat(5, 1fr) / repeat(4, 1fr);
+  width: 400px;
+  height: 600px;
+  grid-template-areas: 
+    "screen screen screen screen"
+    "ac divi multi minus"
+    "seven eight nine add"
+    "four five six add"
+    "one two three eq"
+    "zer zer dec eq";
+  border-style: solid;
+  font-family: 'Reggae One', cursive;
+  font-size: 22px;
+  gap: 0px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(108, 129, 189, 0.892);
+  
+
+
+}
+.numbers{
+  background-color:salmon;
+}
+.opers {
+  background-color: slateblue;
+}
+.screen {
+  grid-area: screen;
+  padding-bottom: 0%;
+  align-content: stretch;
+  border-bottom-style: solid;
+  
+}
+#output {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 54px;
+  background-color: silver;
+  text-align: right;
+  align-self:flex-end
+}
+#one {
+  grid-area: one;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding: 30%;
+  border-radius: 40%;
+}
+#two {
+  grid-area: two;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#three {
+  grid-area: three;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#four {
+  grid-area: four;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#five {
+  grid-area: five;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#six {
+  grid-area: six;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#seven {
+  grid-area: seven;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#eight {
+  grid-area: eight;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#nine {
+  grid-area: nine;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#zer {
+  grid-area: zer;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding-top: 15%;
+  padding-left: 40%;
+  border-radius: 40%;
+  padding-right: 40%;
+  padding-bottom: 15%;
+}
+#divi {
+  grid-area: divi;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#multi {
+  grid-area: multi;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#ac {
+  grid-area: ac;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#eq {
+  grid-area: eq;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+  padding-top: 70%;
+  padding-bottom: 70%;
+  padding-left:30%;
+  padding-right:30%;
+}
+#minus {
+  grid-area: minus;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
+#add {
+  grid-area: add;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+  /* padding:30%; */
+  padding-top: 70%;
+  padding-bottom: 70%;
+  border-radius: 40%;
+  padding-left:30%;
+  padding-right:30%;
+}
+#dec {
+  grid-area: dec;
+  justify-self: center;
+  align-self: center;
+  border-style: solid;
+  padding:30%;
+  border-radius: 40%;
+}
