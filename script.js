@@ -1,4 +1,3 @@
-//math functions
 function addition(a, b) {
   return a + b;
 }
@@ -9,24 +8,27 @@ function multiply(a, b) {
   return a * b;
 }
 function divide(a, b) {
-  if (b === 0) {return "YOU CAN'T DO THAT"}
+  if (b === 0) {display.textContent = "IMPOSSIBURU"}
   return a / b;
 }
 function operate(a, x, b) {
   if (x == 'add') {
-    return addition(a, b)
+    let y = addition(a, b).toFixed(4);
+    return +y;
   }
   else if (x == 'sub') {
-    return subtract(a, b)
+    let y = subtract(a, b).toFixed(4);
+    return +y;
   } 
   else if (x == 'mul') {
-    return multiply(a, b)    
+    let y = multiply(a, b).toFixed(4);
+    return +y;   
   } 
-  else if (x == 'div') {
-    return divide(a, b)
+  else if (x == 'divi') {
+    let y = divide(a, b).toFixed(4);
+    return +y;
   }   
 }
-//initial variables for data
 function clearStorage() {
   storage.registerA = 0;
   storage.operator = "";
@@ -47,17 +49,9 @@ let dec = "."
 function checkDec() {
   return dec 
 }
-//register storage
-//keypad outputs
-// const numPadButtons {
-
-// }
-
-//button eventlisteners
 const numPad = document.querySelectorAll(".numbers");
 numPad.forEach((numPad) => {
   numPad.addEventListener('click', (e) => {
-    console.log(e.target.getAttribute('id'))
     if (storage.input.length >= 13){
       return;
     }
@@ -114,9 +108,7 @@ numPad.forEach((numPad) => {
 const funcs = document.querySelectorAll(".opers")
 funcs.forEach((funcs) => {
   funcs.addEventListener("click", (e) => {
-    console.log(e.target.getAttribute('id'))
     if (e.target.getAttribute('id') == 'ac') {
-      console.log('press AC')
       clearStorage();
     }
     if (e.target.getAttribute('id') == 'eq') {
@@ -124,19 +116,67 @@ funcs.forEach((funcs) => {
       storage.registerB = +storage.input.join("");
       display.textContent = operate(storage.registerA, storage.operator,
         storage.registerB);
+      storage.input = [""]
+      storage.registerA = operate(storage.registerA, storage.operator,
+        storage.registerB);
     }
     if (e.target.getAttribute('id') == "add") {
-      if (storage.registerA !== 0) {
-        storage.registerA = operate(storage.registerA, storage.operator, 
-          storage.registerB)
+      if (storage.registerA != 0) {
+        display.textContent = operate(storage.registerA, storage.operator, +storage.input.join(""))
+        storage.registerA = operate(storage.registerA, storage.operator, +storage.input.join(""))
+        storage.input = [""]
+        storage.operator = "add"
       }
       else {
         storage.registerA = +storage.input.join("");
-        console.log(storage.registerA);
         storage.input = [];
         storage.operator = "add";
         display.textContent = "";
       }
     }
+    if (e.target.getAttribute('id') == "minus") {
+      if (storage.registerA != 0) {
+        display.textContent = operate(storage.registerA, storage.operator, +storage.input.join(""))
+        storage.registerA = operate(storage.registerA, storage.operator, +storage.input.join(""))
+        storage.operator = "sub"
+        storage.input = [""]
+      }
+      else {
+        storage.registerA = +storage.input.join("");
+        storage.input = [];
+        storage.operator = "sub";
+        display.textContent = "";
+      }
+    }
+    if (e.target.getAttribute('id') == "multi") {
+      if (storage.registerA != 0) {
+        display.textContent = operate(storage.registerA, storage.operator, +storage.input.join(""))
+        storage.registerA = operate(storage.registerA, storage.operator, +storage.input.join(""))
+        storage.input = [""]
+        storage.operator = "mul"
+      }
+      else {
+        storage.registerA = +storage.input.join("");
+        storage.input = [];
+        storage.operator = "mul";
+        display.textContent = "";
+      }
+    }
+    if (e.target.getAttribute('id') == "divi") {
+      if (storage.registerA != 0) {
+        display.textContent = operate(storage.registerA, storage.operator, +storage.input.join(""))
+        storage.registerA = operate(storage.registerA, storage.operator, +storage.input.join(""))
+        storage.input = [""]
+        storage.operate = "divi"
+      }
+      else {
+        storage.registerA = +storage.input.join("");
+        storage.input = [];
+        storage.operator = "divi";
+        display.textContent = "";
+      }
+    }
   })
 })
+
+//keyboard eventlisteners
